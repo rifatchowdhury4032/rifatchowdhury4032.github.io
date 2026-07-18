@@ -1,0 +1,385 @@
+/* ===================================================================
+   Rifat — Personal Portfolio
+   Design tokens
+   =================================================================== */
+:root{
+  --navy:        #16213D;
+  --navy-light:  #22335C;
+  --teal:        #2F6F62;
+  --teal-light:  #E4EFEC;
+  --bronze:      #B98B4E;
+  --bg:          #F1F3F1;
+  --surface:     #FFFFFF;
+  --ink:         #1C1F26;
+  --ink-soft:    #58636D;
+  --border:      #DCE3DE;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'IBM Plex Sans', Arial, sans-serif;
+  --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3{
+  font-family: var(--font-display);
+  color: var(--navy);
+  line-height: 1.15;
+  margin: 0 0 .5em;
+}
+
+p{ margin: 0 0 1em; color: var(--ink-soft); }
+
+a{ color: inherit; text-decoration: none; }
+
+img{ max-width: 100%; display: block; }
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  display: inline-block;
+  margin-bottom: .6em;
+}
+
+/* ===================================================================
+   Layout — sidebar + content
+   =================================================================== */
+.layout{
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar{
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--navy);
+  color: #EDEFF3;
+  padding: 2.4rem 1.8rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.monogram{
+  width: 52px;
+  height: 52px;
+  border: 1.5px solid var(--bronze);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--bronze);
+  margin-bottom: 1.4rem;
+}
+
+.sidebar .name{
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: #fff;
+  margin: 0 0 .2rem;
+}
+
+.sidebar .role{
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: #A9B2C6;
+  letter-spacing: .03em;
+  margin-bottom: 2.2rem;
+}
+
+.sidebar nav{
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.sidebar nav a{
+  font-size: .92rem;
+  padding: .55rem .7rem;
+  border-radius: 4px;
+  color: #C7CCDA;
+  border-left: 2px solid transparent;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.sidebar nav a:hover{
+  background: rgba(255,255,255,.06);
+  color: #fff;
+}
+
+.sidebar nav a.active{
+  color: #fff;
+  border-left-color: var(--bronze);
+  background: rgba(255,255,255,.06);
+  font-weight: 600;
+}
+
+.sidebar .sidebar-footer{
+  margin-top: auto;
+  padding-top: 1.6rem;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  color: #7C869C;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.content{
+  flex: 1;
+  padding: 3.4rem 4rem;
+  max-width: 900px;
+}
+
+/* Mobile top bar (hidden on desktop) */
+.topbar{ display: none; }
+
+/* ===================================================================
+   Buttons
+   =================================================================== */
+.btn{
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  letter-spacing: .04em;
+  padding: .72rem 1.4rem;
+  border-radius: 3px;
+  border: 1.5px solid var(--navy);
+  transition: background .15s ease, color .15s ease;
+}
+
+.btn-primary{
+  background: var(--navy);
+  color: #fff;
+}
+.btn-primary:hover{ background: var(--navy-light); }
+
+.btn-ghost{
+  background: transparent;
+  color: var(--navy);
+  margin-left: .8rem;
+}
+.btn-ghost:hover{ background: var(--teal-light); }
+
+/* ===================================================================
+   Cards / Badges / Timeline
+   =================================================================== */
+.card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.badge-grid{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin: 1.2rem 0;
+}
+
+.badge{
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  background: var(--teal-light);
+  color: var(--teal);
+  border: 1px solid #C7DED8;
+  padding: .45rem .85rem;
+  border-radius: 3px;
+}
+
+.badge.soft{
+  background: var(--bg);
+  color: var(--ink-soft);
+  border-color: var(--border);
+}
+
+.timeline{
+  border-left: 2px solid var(--teal-light);
+  margin-left: .4rem;
+  padding-left: 1.8rem;
+}
+
+.timeline-item{
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.timeline-item:last-child{ padding-bottom: 0; }
+
+.timeline-item::before{
+  content: "";
+  position: absolute;
+  left: -2.29rem;
+  top: .25rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bronze);
+  border: 2px solid var(--bg);
+}
+
+.timeline-date{
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  color: var(--bronze);
+  letter-spacing: .04em;
+  display: block;
+  margin-bottom: .2rem;
+}
+
+.timeline-item h3{ font-size: 1.1rem; margin-bottom: .15rem; }
+
+.timeline-item .place{
+  color: var(--ink-soft);
+  font-size: .92rem;
+}
+
+.divider{
+  height: 1px;
+  background: var(--border);
+  border: none;
+  margin: 2.4rem 0;
+}
+
+footer.page-footer{
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  color: var(--ink-soft);
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ===================================================================
+   Contact
+   =================================================================== */
+.contact-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.6rem 0;
+}
+
+.contact-item{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.3rem 1.5rem;
+}
+
+.contact-item .label{
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: block;
+  margin-bottom: .4rem;
+}
+
+.contact-item .value{
+  font-size: 1rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ===================================================================
+   Hero (home page)
+   =================================================================== */
+.hero{
+  padding-top: 1.5rem;
+}
+
+.hero h1{
+  font-size: 2.6rem;
+  max-width: 10ch;
+}
+
+.hero .tagline{
+  font-size: 1.08rem;
+  max-width: 46ch;
+}
+
+.hero .cta-row{ margin-top: 1.8rem; }
+
+/* ===================================================================
+   Responsive
+   =================================================================== */
+@media (max-width: 860px){
+  .layout{ flex-direction: column; }
+
+  .sidebar{
+    display: none;
+  }
+
+  .topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--navy);
+    color: #fff;
+    padding: 1rem 1.4rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .topbar .name{
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+  }
+
+  .topbar button{
+    background: none;
+    border: 1px solid #4A567A;
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: .78rem;
+    padding: .4rem .7rem;
+    border-radius: 3px;
+  }
+
+  .mobile-nav{
+    display: none;
+    flex-direction: column;
+    background: var(--navy-light);
+    padding: .6rem 1.4rem 1.2rem;
+  }
+
+  .mobile-nav.open{ display: flex; }
+
+  .mobile-nav a{
+    color: #E5E8F0;
+    padding: .6rem 0;
+    font-size: .95rem;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+  .mobile-nav a.active{ color: var(--bronze); font-weight: 600; }
+
+  .content{
+    padding: 2.2rem 1.4rem 3rem;
+  }
+
+  .hero h1{ font-size: 2.1rem; max-width: none; }
+
+  .contact-grid{ grid-template-columns: 1fr; }
+}
